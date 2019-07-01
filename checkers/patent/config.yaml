@@ -1,0 +1,4 @@
+service_name: Patent
+ports:
+  - 5700
+version: '1.0'

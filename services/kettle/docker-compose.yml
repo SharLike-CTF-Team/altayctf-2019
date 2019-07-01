@@ -1,0 +1,13 @@
+version: '3.4'
+services:
+  kettle:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: kettle
+    restart: unless-stopped
+    ports:
+      - "9000:9000"
+    volumes:
+      - .:/app
+    command: ["gunicorn", "main:app", "--bind", "0.0.0.0:9000", "--worker-class", "aiohttp.worker.GunicornUVLoopWebWorker"]

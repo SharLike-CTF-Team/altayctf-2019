@@ -1,0 +1,297 @@
+*
+{
+    transition: all 0.3s ease !important;
+}
+
+body
+{
+    color: #F8F8FF;
+    text-shadow: #1E90FF 0 0 10px;
+}
+
+a
+{
+    padding-left: 2px;
+    padding-right: 2px;
+    color:white;
+}
+
+a:hover
+{
+    color:white;
+    text-shadow: #1E90FF 1px 1px 0, #1E90FF -1px -1px 0,
+    #1E90FF -1px 1px 0, #1E90FF 1px -1px 0;
+    font-style: normal;
+    text-decoration: none;
+}
+
+input[type=text],input[type=password],input[type=email],.input
+{
+    border-color: white ;
+    background-color: transparent;
+    color: white;
+    box-shadow: #1E90FF 0 0 10px ;
+    border-radius: 0;
+}
+
+input[type=text]:focus,input[type=password]:focus,input[type=email]:focus,.input:focus
+{
+    border-color: #1E90FF ;
+    text-shadow: #1E90FF 1px 1px 0, #1E90FF -1px -1px 0,
+    #1E90FF -1px 1px 0, #1E90FF 1px -1px 0;
+    background: inherit;
+    color: white;
+}
+
+
+
+input::-moz-placeholder {
+    color: rgba(210, 210, 210, 0.69); /* Цвет подсказывающего текста */
+    text-shadow:none;
+}
+input::-webkit-input-placeholder { color: rgba(210, 210, 210, 0.69);text-shadow:none; }
+input:-ms-input-placeholder { color: rgba(210, 210, 210, 0.69);text-shadow:none; }
+input::placeholder { color: rgba(210, 210, 210, 0.69); text-shadow:none;}
+
+
+
+
+input[type=submit],input[type=button],.button-console
+{
+    border: 1px solid transparent;
+    background: url("../img/colourful-countdown-light-display.png");
+    background-size: 50% 50%;
+    border-color: white ;
+    color: white;
+}
+
+input[type=submit]:hover,input[type=button]:hover,.button-console:hover,.button-active
+{
+    text-shadow: #1E90FF 1px 1px 0, #1e90ff -1px -1px 0,
+    #1E90FF -1px 1px 0, #1E90FF 1px -1px 0;
+    border-color: #1E90FF ;
+    color: white;
+    box-shadow: #1E90FF 0 0 10px ;
+}
+
+.button-console
+{
+    font-size: 20px;
+    border-radius: 0;
+}
+
+
+.fullscreen
+{
+    height: 100vh;
+}
+
+.bg-welcome
+{
+    background: url("../img/space-wallpaper-space-blue-hd.jpg");
+    background-size: cover;
+}
+.button-long
+{
+    width: 20vw;
+    padding:5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 30px;
+}
+.console
+{
+    border: 1px outset white;
+    background: url("../img/colourful-countdown-light-display.png");
+    background-size: 50% 50%;
+    text-align: center;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    box-shadow: #1E90FF 0 0 10px ;
+}
+
+.console:hover
+{
+    border-color: #1E90FF ;
+    color: white;
+}
+
+.console a:hover
+{
+    text-shadow: #1E90FF 1px 1px 0, #1e90ff -1px -1px 0,
+    #1E90FF -1px 1px 0, #1E90FF 1px -1px 0;
+}
+
+.center
+{
+    float:none;
+    margin: auto !important;
+}
+
+.text-error
+{
+    color:red;
+    margin-top: 5%;
+}
+
+.text-help
+{
+    color: #1E90FF;
+}
+
+.custom-file-label::after
+{
+    content: none;
+}
+
+.navbar-expand-lg
+{
+    font-size: 25px;
+}
+
+.img-card{
+    margin: auto;
+    padding: 0;
+    position: relative;
+    width:80%;
+    height: 500px;
+    background: #000;
+    border: 1px solid #000;
+    border-radius:3px;
+
+}
+.img-card img{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    max-width:100%;
+    max-height: 100%;
+}
+
+
+.img-user,.img-prof{
+    padding: 0;
+    position: relative;
+    width:50px;
+    height: 50px;
+    background: #000;
+    border: 1px solid #000;
+    border-radius:3px;
+
+}
+.img-user img,.img-prof img{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    max-width:100%;
+    max-height: 100%;
+}
+
+.img-prof
+{
+    width:30px;
+    height: 30px;
+}
+#top {
+    bottom: 5%;
+    cursor: pointer;
+    display: none;
+    font-size: 150%;
+    position: fixed;
+    left: 5%;
+    padding: 1%;
+}
+
+.img-friends{
+    margin: auto;
+    padding: 0;
+    position: relative;
+    width:100px;
+    height: 100px;
+    background: #000;
+    border: 1px solid #000;
+    border-radius:3px;
+
+}
+.img-friends img{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    max-width:100%;
+    max-height: 100%;
+}
+
+.img-message{
+    margin: auto;
+    padding: 0;
+    position: relative;
+    width:70px;
+    height: 70px;
+    background: #000;
+    border: 1px solid #000;
+    border-radius:3px;
+
+}
+.img-message img{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    max-width:100%;
+    max-height: 100%;
+}
+
+.main-content
+{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.form-control
+{
+    display: inline-block;
+}
+.form-control[readonly]
+{
+    background-color: inherit;
+}
+
+.profile-info
+{
+    font-size: 20px;
+}
+
+.dialog
+{
+    padding: 2%;
+    height: 60vh;
+    overflow: auto;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px #1E90FF;
+    border-radius: 10px;
+    background-color:black;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px #1E90FF;
+}
+
+.scroll
+{
+    overflow: auto;
+}
+
+#friends,#requests
+{
+    height: 65vh;
+}

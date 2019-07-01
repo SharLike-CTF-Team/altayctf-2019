@@ -1,0 +1,57 @@
+{% include "include/header.html" %}
+<div class="container" style="text-align:center;width:100%">
+	<form action="{{url_for('clients.individual')}}" method="post" class="needs-validation" novalidate="" style="width:50%;margin:  auto;" align="center">
+		<br>
+		<div class="row justify-content-md-center" style="width:50%;margin:  auto;">
+			<div class="col-md-auto">
+				<label for="phone">Телефон</label>
+				<input type="text" class="form-control" name="phone" id="phone" placeholder="" value="" required="">
+			</div>
+		</div><br>
+		<button class="btn btn-primary btn-lg btn-block" type="submit" style="width:50%;margin:  auto">Найти клиента</button>
+	</form>
+</div>
+{% if clients != None %}
+<table class="table table-striped table-bordered" style="width:95%;margin:  auto; border-left-style: hidden">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>
+				<a href="#" data-sort="fio">ФИО</a>
+			</th>
+			<th>
+				<a href="#" data-sort="Адрес">Адрес</a>
+			</th>
+			<th>
+				<a href="#" data-sort="Телефон">Телефон</a>
+			</th>
+			<th>
+				<a href="#" data-sort="title">Обращения</a>
+			</th>
+	</thead>
+	{%for client in clients%}
+	<tbody>
+		<tr data-key="1">
+			<td>{{client.id}}</td>
+			<td>{{client.sur_name + ' ' + client.first_name + ' ' + client.second_name}}</td>
+			{% if client.block != ''%}
+			<td>{{client.street.name ~ ', ' ~ client.house_number +', '~ client.block ~' - '~client.flat}}</td>
+			{%else%}
+			<td>{{client.street.name ~ ', ' ~ client.house_number~' - '~client.flat}}</td>
+			{% endif%}
+
+			<td>{{client.phone}}</td>
+			<td>{% if client.active == 0 %}<a href="{{url_for('appeal.create',clientid = client.id|string)}}" class="btn btn-primary btn-sm btn-block" style="width:50%;margin:  auto">Создать обращение</a>{%else%}Уже есть активное обращение{%endif%}</td>
+		</tr>
+	</tbody>
+	{%endfor%}
+</table>
+{%endif%}
+
+{% include "include/footer.html" %}
+
+<script>
+$(function(){
+  $("#phone").mask("8(999) 999-99-99", {autoclear: false});
+});
+</script>

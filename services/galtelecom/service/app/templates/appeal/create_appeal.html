@@ -1,0 +1,13 @@
+{% include "include/header.html" %}
+<div class="container" style="text-align:center;width:100%">
+<form data-toggle="validator" role="form" style="width:50%;margin:  auto;" action="{{url_for('appeal.create',clientid = clientid)}}" method="post">
+	<div class="row">
+        <label for="comment">Причина обращения</label>
+        <textarea style="padding-bottom: 50%;margin-bottom: 2%;" type="text" class="form-control" id="comment" name="comment" placeholder="" value="" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Создать обращение</button>
+</form>
+</div>
+{% include "include/footer.html" %}
+
+

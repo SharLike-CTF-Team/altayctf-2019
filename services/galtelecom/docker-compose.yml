@@ -1,0 +1,26 @@
+version: '2.1' 
+services:
+  web:
+    build: ./service/
+    ports:
+     - "5000:5000"
+    links:
+      - mysql
+    depends_on:
+       mysql:
+        condition: service_started
+    mem_limit: 512m
+    restart: always  
+  mysql:
+    build: mysql/
+   
+    environment:
+      MYSQL_DATABASE: service
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_HOST: 0.0.0.0
+      MYSQL_USER: telecom
+      MYSQL_PASSWORD: 1q2w3e4r5t
+      MYSQL_DATABASE: telecom
+    ports:
+      - "127.0.0.1:3306:3306"
+    restart: always

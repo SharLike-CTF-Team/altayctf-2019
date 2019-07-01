@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo.bmp') }}" type="image/x-icon">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link href="{{ url_for('static', filename='css/default.css') }}" rel="stylesheet">
+    <title>GalTelecom</title>
+</head>
+<body>    
+    <div class="wrap">
+        <nav id="w1" class="navbar-inverse navbar-fixed-top navbar" style="background-color: #0099cc">
+            {% if user %}
+            <div class="container">
+                    <ul id="w0" class="navbar-nav navbar-left nav">
+                        <a href="{{ url_for('index.index') }}">
+                            <img src="{{ url_for('static', filename='img/planeta.png')}}">
+                        </a>
+                    </ul>
+                <div class="navbar-header">
+                    <ul id="w2" class="navbar-nav navbar-center nav">
+                        <li class="dropdown" style="color:black">
+                            <a href="#" style="color:white"  class="dropdown-toggle" data-toggle="dropdown">
+                                    {{ user.uname }}<span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                <li>
+                                    <a href="{{ url_for('profile.edit') }}">
+                                        Редактировать профиль
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ url_for('profile.logout') }}">
+                                        Выйти
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div id="w1-collapse" class="collapse navbar-collapse">
+                    <ul id="w3" class="navbar-nav navbar-right nav">
+                        {% if user.role == 0 %}
+                        <li class="dropdown">
+                            <a href="#" style="color:white"  class="dropdown-toggle" data-toggle="dropdown">
+                                Администрирование<span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="{{ url_for('admin.create') }}">Создание пользователя</a></li>
+                                <li><a href="{{ url_for('admin.list') }}">Редактирование пользователя</a></li>
+                            </ul>
+                        </li>
+                        {% endif %}
+                        <li class="dropdown">
+                            <a href="#" style="color:white"  class="dropdown-toggle" data-toggle="dropdown">Клиенты<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="{{ url_for('clients.individual') }}">Физические</a></li>
+                                <li><a href="{{ url_for('clients.add') }}">Добавить</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="{{ url_for('appeal.appeal') }}" style="color:white">Обращения</a>
+                        </li>
+                        <li><a href="{{url_for('contacts.contacts')}}" style="color:white">Контакты</a></li>
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+        </nav>

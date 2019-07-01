@@ -1,0 +1,45 @@
+{% include "include/header.html" %}
+<div class="container" style="text-align:center;width:100%">
+    <h2 class="form-signin-heading">Введите учетные данные</h2>
+    <form  action="" method='POST' class="form-signin" role="form"  style="width:20%;margin:  auto;">
+        <input class="form-control" placeholder="Логин" required="" name="login" id="login" autofocus="">
+        <br>
+        <input type="password" class="form-control" placeholder="Пароль" name="password" id="password" required="">
+        <br>
+        <div class="radio-inline">
+            <label><input type="radio" name="role" id="operator" value="1" checked>Оператор</label>
+        </div>
+        <div class="radio-inline">
+            <label><input type="radio" name="role" id="admin" value="0">Администратор</label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" name="action" id="createButton">
+            Создать
+        </button>
+    </form>
+</div>
+{% include "include/footer.html" %}
+<script>
+$(function() {
+    $('#createButton').click(function(e) {
+        e.preventDefault();
+        $.ajax({
+        url: '/admin/create',
+        data: $('form').serialize(),
+        method: 'POST',
+        success: function (response) {
+            if (response.status === 1){
+                alert(response.message);
+            }
+            else {
+                alert(response.message);
+                document.getElementById('login').value = "";
+                document.getElementById('password').value = "";
+            }
+        },
+        error: function() {
+            alert('Error');
+        }
+        });
+    })
+});
+</script>

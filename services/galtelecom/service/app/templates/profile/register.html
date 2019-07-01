@@ -1,0 +1,49 @@
+{% include "include/header.html" %}
+<div class="container" style="text-align:center;width:100%">
+    <h2 class="form-signin-heading">Введите учетные данные</h2>
+    <form  action="" method='POST' class="form-signin" role="form"  style="width:20%;margin:  auto;">
+        <input class="form-control" placeholder="Логин" required="" name="login" id="login" autofocus="">
+        <br>
+        <input type="password" class="form-control" placeholder="Пароль" name="password" id="password" required="">
+        <br>
+        <input type="password" class="form-control" placeholder="Пароль еще раз" name="repassword" id="repassword" required="">
+        <br>
+        <input type="email" class="form-control" placeholder="Почта" name="repassword" id="mail" required="">
+        <br>
+        <input class="form-control" placeholder="Токен работника" name="token" id="token" required="">
+        <br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" name="action" id="btnSignIn">
+            Регистрация
+        </button>
+    </form>
+</div>
+{% include "include/footer.html" %}
+<script>
+$(function() {
+    $('#btnSignIn').click(function(e) {
+    e.preventDefault();
+    var password = document.getElementById("password"),
+    confirm_password = document.getElementById("repassword");
+    if(password.value == confirm_password.value){
+            $.ajax({
+            url: '/profile/registration',
+            data: $('form').serialize(),
+            method: 'POST',
+            success: function (response) {
+                if (response.status === 1){
+                    location.replace("{{ url_for('index.index')  }}");
+                }
+                else {
+                    alert(response.message);
+                    document.getElementById('login').value = "";
+                    document.getElementById('password').value = "";
+                }
+            },
+            error: function() {
+                alert('Error');
+            }
+        });}
+        else{alert('Введенные пароли различаются');}
+    })
+});
+</script>

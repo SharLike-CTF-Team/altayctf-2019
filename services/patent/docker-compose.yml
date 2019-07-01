@@ -1,0 +1,29 @@
+version: '2'
+services:
+  web:
+    build: ./service
+    restart: always
+    links:
+      - postgres
+      - sphinx
+    ports:
+      - "5700:80"
+    mem_limit: 256m
+  sphinx:
+    build: ./sphinx
+    restart: always
+    links:
+      - postgres
+    ports:
+      - "9306:9306"
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:11.3-alpine
+    restart: always
+    volumes:
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres

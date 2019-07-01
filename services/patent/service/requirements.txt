@@ -1,0 +1,4 @@
+go get "github.com/gorilla/context"
+go get "github.com/gorilla/sessions"
+go get "github.com/lib/pq"
+go get "github.com/yunge/sphinx"

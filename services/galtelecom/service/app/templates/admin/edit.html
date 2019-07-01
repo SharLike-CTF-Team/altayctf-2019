@@ -1,0 +1,52 @@
+{% include "include/header.html" %}
+<div class="container" style="text-align:center;width:100%">
+    {%if usr != None%}
+    <h2 class="form-signin-heading">Новые учетные данные пользователя</h2>
+    <form  action="" method='POST' class="form-signin" role="form"  style="width:20%;margin:  auto;">
+        <input class="form-control" placeholder="Логин" name="login" id="login" autofocus="" value="{{usr.uname}}">
+        <br>
+        <input type="password" class="form-control" placeholder="Новый пароль" name="password" id="password" value="">
+        <br>
+        <div class="radio-inline">
+            <label><input type="radio" name="role" id="operator" value="1" {%if usr.role == 1 %}checked{%endif%}>Оператор</label>
+        </div>
+        <div class="radio-inline">
+            <label><input type="radio" name="role" id="admin" value="0"{%if usr.role == 0 %}checked{%endif%}>Администратор</label>
+        </div>
+        <label for="information">Добавить особые пометки:</label>
+        <textarea class="form-control" rows="5" name="information" id="information">{{usr.information}}</textarea>
+        <br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" name="action" id="changeButton">
+            Изменить данные
+        </button>
+    </form>
+</div>
+{% include "include/footer.html" %}
+<script>
+$(function() {
+    $('#changeButton').click(function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: '{{url_for('admin.edit_user',userid=usr.id)}}',
+            data: $('form').serialize(),
+            method: 'POST',
+            success: function (response) {
+                if (response.status === 1){
+                    alert(response.message);
+                    location.replace("{{ url_for('admin.list')  }}");
+                }
+                else {
+                    alert(response.message);
+                    document.getElementById('password').value = "";
+                }
+            },
+            error: function() {
+                alert('Error');
+            }
+        });
+    })
+});
+</script>
+{%else%}
+{% include "include/footer.html" %}
+{%endif%}

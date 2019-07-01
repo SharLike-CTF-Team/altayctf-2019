@@ -1,0 +1,20 @@
+{% include "include/header.html" %}
+<div class="container" style="text-align:center;width:100%">
+    <div class="container" style="background-color: #e0dfe0;width: 50%;margin: auto;text-align: left;border-radius: 10px;">
+        <div class="row">
+            <div class="col" style="padding: 2% 1%;">
+                <img style="max-width: 10%;background: white;" src="{{url_for('static',filename = 'img/profile_img/'+range(1, 5) | random |string + '.jpg')}}">
+            </div>
+            <div class="col" style="padding: 1% 1%;">
+                <span style="font-size: large">Имя пользователя: </span><span class="typewriter">{{user_info.uname}}</span>
+            </div>
+            <div class="col" style="padding: 1% 1%;">
+                <span style="font-size: large">Должность: </span><span class="typewriter">{% if user_info.role == 0 %}Admin{%else%}Operator{% endif %}</span>
+            </div>
+            <div class="col" style="padding: 1% 1%;">
+                <span style="font-size: large">Особые отметки: </span><span class="typewriter">{{user_info.information}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+{% include "include/footer.html" %}

@@ -1,0 +1,1 @@
+docker exec -it patent_sphinx_1 indexer --rotate --all

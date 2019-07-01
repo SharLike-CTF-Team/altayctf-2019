@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <title> InGalaxy </title>
+</head>
+<body class="bg-welcome">
+<header class="fixed-top">
+    <div class="container-fluid">
+        <div class="row justify-content-between">
+            <div class="col-2 console p-0">
+                <div class="row h-100 justify-content-center align-items-center">
+                    <h2><a href="#">InGalaxy</a></h2>
+                </div>
+            </div>
+            <div class="col-6 console p-0">
+                <nav class="navbar navbar-expand-lg p-0">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-center align-items-center"
+                         id="navbarNavDropdown">
+                        <ul class="navbar-nav justify-content-around w-100">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <button type="submit" class="btn button-console">Профиль</button>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <button type="submit" class="btn button-console">Друзья</button>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <button type="submit" class="btn button-console">Галолента</button>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <button type="submit" class="btn button-console">Сообщения</button>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-2 console p-0">
+                <div class="row justify-content-between align-items-center h-100 w-100 ml-0">
+                    <div class="col-6 p-0">
+                        <a href="#">
+                            Obi-Wan
+                        </a>
+                    </div>
+                    <div class="col-6 p-0">
+                        <a class="nav-link dropdown-toggle" data-toggle="collapse" href="#dropdown_top" role="button"
+                           aria-expanded="false" aria-controls="dropdown_top">
+                            <img src="img/obi.jpg" class="rounded z-depth-4 button-console" width="30" height="30">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-end align-items-center">
+            <div class="col-2 collapse console" id="dropdown_top">
+                <a class="btn button-console w-100 mb-3" href="#">
+                    Редактировать</a>
+                <a class="btn button-console w-100" href="#">
+                    Выход</a>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container main-content">
+    <form class="console" id="info">
+        <h3>Профиль</h3>
+        <div class="container">
+            <div class="row justify-content-around">
+                <div class="col-4">
+                    <div class="img-friends">
+                        <img src="img/obi.jpg" alt="Card image cap">
+                    </div>
+                    <label for="customFile">Загрузите картинку</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFile">
+                        <label class="custom-file-label input" for="customFile">Выберите файл</label>
+                        <small class="text-help"> jpg,png до 10мб</small>
+                    </div>
+                    <label for="selfdescription" class="mt-3">О себе</label>
+                    <div class="custom-file">
+                        <textarea class="form-control input" id="selfdescription" rows="5"></textarea>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="login">Логин</label>
+                        <input type="text" class="form-control" id="login" placeholder="Ваш логин" readonly
+                               value="Obi-Wan">
+                        <small class="text-help">Вы не можете изменить свой логин</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Имя</label>
+                        <input type="text" class="form-control" id="name" placeholder="Ваше имя">
+                    </div>
+                    <div class="form-group">
+                        <label for="surname">Фамилия</label>
+                        <input type="text" class="form-control" id="surname" placeholder="Ваша фамилия">
+                    </div>
+                    <div class="form-group">
+                        <label for="race">Раса</label>
+                        <input type="text" class="form-control" id="race" placeholder="Ваша раса">
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Пол</label>
+                        <input type="text" class="form-control" id="gender" placeholder="Ваш пол">
+                    </div>
+                    <div class="form-group">
+                        <label for="birthday">Дата рождения</label>
+                        <input type="date" class="form-control input" id="birthday" placeholder="Дата рождения">
+                    </div>
+                    <div class="form-group">
+                        <label for="homeplace">Место проживания</label>
+                        <input type="text" class="form-control input" id="homeplace" placeholder="Планета\Система">
+                    </div>
+                    <button form="info" type="submit" class="btn button-console button-long mt-5">Сохранить</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <form class="console mt-5" id="passwd">
+        <div class="container">
+            <div class="row justify-content-around">
+                <div class="col-4">
+                    <h3>Сменить пароль</h3>
+                    <div class="form-group">
+                        <label for="password">Старый пароль</label>
+                        <input type="password" class="form-control" id="old-password" placeholder="Старый пароль">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Новый пароль</label>
+                        <input type="password" class="form-control" id="password" placeholder="Новый пароль">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Повторите пароль</label>
+                        <input type="password" class="form-control" id="repeat-password"
+                               placeholder="Ваш пароль">
+                    </div>
+                    <div class="row justify-content-center mt-5">
+                        <button form="passwd" type="submit" class="btn button-console button-long">Сменить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div id="top" class="button-console">
+    Наверх
+</div>
+
+
+<script>
+    // кнопка
+    $(document).ready(function () {
+        $("#toAddNews").on("click", "a", function (event) {
+            //отменяем стандартную обработку нажатия по ссылке
+            event.preventDefault();
+
+            //забираем идентификатор бока с атрибута href
+            var id = $(this).attr('href'),
+                //узнаем высоту от начала страницы до блока на который ссылается якорь
+                top = $(id).offset().top;
+
+            $('body,html').animate({scrollTop: top}, timeToScroll);
+            $('#addNews').find('textarea').focus();
+        });
+    });
+</script>
+</body>
+</html>

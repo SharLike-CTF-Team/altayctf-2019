@@ -1,0 +1,4 @@
+service_name: In Galaxy
+ports:
+  - 8000
+version: '1.0'

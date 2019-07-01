@@ -1,0 +1,58 @@
+{% include "include/header.html" %}
+<div class="container" style="text-align:center;width:100%">
+	<form action="{{url_for('appeal.appeal')}}" method="post" class="needs-validation" novalidate="" style="width:50%;margin:  auto;" align="center">
+		<br>
+		<div class="row justify-content-md-center" style="width:50%;margin:  auto;">
+			<div class="col-md-auto">
+				<label for="phone">Телефон</label>
+				<input type="text" class="form-control" name="phone" id="phone" placeholder="" value="" required="">
+			</div>
+		</div><br>
+		<button class="btn btn-primary btn-lg btn-block" type="submit" style="width:50%;margin:  auto">Найти обращение</button>
+	</form>
+</div>
+{% if ans %}
+<table class="table table-striped table-bordered" style="width:95%;margin:  auto; border-left-style: hidden">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>
+				<a href="#" data-sort="fio">ФИО</a>
+			</th>
+			<th>
+				<a href="#" data-sort="Телефон">Телефон</a>
+			</th>
+			<th>
+				<a href="#" data-sort="comment">Комментарий</a>
+			</th>
+			<th>
+				<a href="#" data-sort="comment">Дата начала</a>
+			</th>
+	</thead>
+	{%for an in ans%}
+	<tbody>
+		<tr data-key="1">
+			<td>{{an.client.id}}</td>
+			<td>{{an.client.sur_name + ' ' + an.client.first_name + ' ' + an.client.second_name}}</td>
+			<td>{{an.client.phone}}</td>
+
+			<td>{{an.comment}}</td>
+			<td>{{an.start_time}}</td>
+			<td>
+				<a href="{{url_for('appeal.pause',appealid = an.id)}}" title="Остановить" aria-label="Pause" data-pjax="0">
+					<span class="glyphicon glyphicon-pause"></span>
+				</a>
+			</td>
+		</tr>
+	</tbody>
+	{%endfor%}
+</table>
+{%endif%}
+
+{% include "include/footer.html" %}
+
+<script>
+$(function(){
+  $("#phone").mask("8(999) 999-99-99", {autoclear: false});
+});
+</script>

@@ -1,0 +1,45 @@
+﻿{% include "include/header.html" %}
+<div class="container" style="text-align:center;width:100%">
+    <h2 class="form-signin-heading">Введите учетные данные</h2>
+    <form  action="" method='POST' class="form-signin" role="form"  style="width:20%;margin:  auto;">
+        <input class="form-control" placeholder="Логин" required="" name="login" id="login" autofocus="">
+        <input type="password" class="form-control" placeholder="Пароль" name="password" id="password" required="">
+        <br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" name="action" id="btnSignIn">
+            Войти
+        </button>
+    </form>
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <a href ="{{ url_for('profile.registr')}}">
+                Регистрация
+            </a>
+        </div>
+    </div>
+</div>
+{% include "include/footer.html" %}
+<script>
+$(function() {
+    $('#btnSignIn').click(function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: '/profile/login',
+            data: $('form').serialize(),
+            method: 'POST',
+            success: function (response) {
+                if (response.status === 1){
+                    location.replace("{{ url_for('index.index')  }}");
+                }
+                else {
+                    alert(response.message);
+                    document.getElementById('login').value = "";
+                    document.getElementById('password').value = "";
+                }
+            },
+            error: function() {
+                alert('Error');
+            }
+        });
+    })
+});
+</script>

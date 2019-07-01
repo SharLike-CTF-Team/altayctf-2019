@@ -1,0 +1,2 @@
+yum install screen
+screen -dmS searchd watch --interval 30 /home/patent/script.sh

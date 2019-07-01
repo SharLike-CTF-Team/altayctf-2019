@@ -1,0 +1,17 @@
+bleach==2.0.0
+Blueprints==2.3.0.2
+decorator==4.0.11
+Flask==0.12.2
+Flask-Mail==0.9.1
+flask-peewee==0.6.7
+Flask-ReCaptcha==0.4.2
+Flask-Script==2.0.5
+Flask-Session==0.3.1
+itsdangerous==0.24
+Jinja2==2.9.6
+peewee==2.10.1
+Werkzeug==0.12.2
+wtf-peewee==0.2.6
+WTForms==2.1
+gunicorn
+PyMySQL

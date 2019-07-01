@@ -1,0 +1,55 @@
+{% include "include/header.html" %}
+<div class="container" style="text-align:center;width:100%">
+<form data-toggle="validator" role="form" style="width:50%;margin:  auto;" method="post" action="/clients/add">
+	<div class="row">
+			<div class="col-md-7 mb-3">
+				<label for="surName">Фамилия</label>
+				<input type="text" class="form-control" id="surName" name="surName" placeholder="" value="" required>
+			</div>
+			<div class="col-md-7 mb-3">
+				<label for="firstName">Имя</label>
+				<input type="text" class="form-control" id="firstName" name="firstName" placeholder="" value="" required>
+			</div>
+			<div class="col-md-7 mb-3">
+				<label for="secondName">Отчество</label>
+				<input type="text" class="form-control" id="secondName" name="secondName" placeholder="" value="" required>
+			</div>
+		</div>
+ <div class="row">
+			<div class="col-md-3 mb-3">
+				<label for="street">Улица</label>
+				<select class="custom-select d-block w-250" id="street" name="street" required="">
+					<option value="" selected hidden>Выбрать...</option>
+					{% for street in streets %}
+					<option value="{{ street.id }}">{{ street.name }}</option>
+					{% endfor%}
+				</select>
+			</div>
+			<div class="col-md-3 mb-3">
+				<label for="house">Дом</label>
+				<input type="text" class="form-control" id="house" name="house"  placeholder="" value="" required="">
+			</div>
+			<div class="col-md-3 mb-3">
+				<label for="block">Корпус</label>
+				<input type="text" class="form-control" id="block" name="block" placeholder="" value="">
+			</div>
+			<div class="col-md-3 mb-3">
+				<label for="flat">Квартира</label>
+				<input type="text" class="form-control" pattern="[0-9]*" data-error="Dопустимы только цифры"id="flat" name="flat" placeholder="Только цифры" value="" required>
+			</div>
+			<div class="col-md-7 mb-3">
+				<label for="phone">Номер телефона</label>
+				<input type="text" class="form-control" id="phone" name="phone" placeholder="8(___)___-__-__" value="" required="" name="phone">
+			</div>
+			<div class="col-md-7 mb-3">
+				<label for="birthday">Дата рождения</label>
+				<input type="text" class="form-control" id="birthday" name="birthday" placeholder="__-__-____" value="" required="">
+			</div>
+		</div><br>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+</div>
+{% include "include/footer.html" %}
+

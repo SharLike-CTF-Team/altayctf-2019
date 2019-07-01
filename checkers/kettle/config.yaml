@@ -1,0 +1,5 @@
+service_name: kettle
+ports:
+  - 9000
+  - 5201
+version: '1.0'
