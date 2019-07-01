@@ -13,4 +13,4 @@ To enable patent search in patent service, run script.sh every N seconds (N usua
 screen -dmS searchd watch --interval N /home/patent/script.sh
 ```
 ### Checkers
-Written in python/aioHTTP client. `self.fake` is [faker](https://github.com/joke2k/faker) instance. Python `__debug__` constant should be `False` for results correctness.
+Written in python/aioHTTP client. `self.fake` is [faker](https://github.com/joke2k/faker) instance. Python `__debug__` constant should be `True` for results correctness.
